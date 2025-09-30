@@ -239,9 +239,12 @@ const bannerOffset =
 				position: fixed !important;
 				top: 0 !important;
 				left: 0 !important;
+				right: 0 !important;
+				bottom: 0 !important;
 				width: 100vw !important;
 				height: 100vh !important;
 				/* iOS Safari 需要明确的高度 */
+				min-height: 100vh !important;
 				min-height: -webkit-fill-available !important;
 				background-image: var(--bg-url) !important;
 				background-position: var(--bg-position) !important;
@@ -264,19 +267,26 @@ const bannerOffset =
 				opacity: var(--bg-opacity) !important;
 			}
 			
-			/* iOS Safari 特殊处理：使用 absolute 代替 fixed */
+			/* iOS Safari 特殊处理：强制 fixed 定位 */
 			@supports (-webkit-touch-callout: none) {
 				body::before {
-					position: absolute !important;
-					height: 100% !important;
+					/* 保持 fixed 但确保渲染 */
+					position: fixed !important;
+					/* 使用 inset 简写 */
+					inset: 0 !important;
+					/* iOS 需要明确的 overflow */
+					overflow: hidden !important;
 				}
 				
 				html {
-					height: 100%;
+					/* 防止 body 滚动时背景消失 */
+					overflow-x: hidden;
 				}
 				
 				body {
-					min-height: 100%;
+					/* 确保 body 可以滚动 */
+					position: relative;
+					min-height: 100vh;
 				}
 			}
 			
