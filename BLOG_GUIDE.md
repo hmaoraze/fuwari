@@ -3,12 +3,7 @@
 ## 🚀 快速开始
 
 ### 创建新文章
-#### 图片
-```markdown
-# 使用您的双CDN图床
-![图片描述](https://fastim.cloudrunmax.top/your-image.jpg)
-
-# 本地图片(放在 public/uploads/images/ 目录下)h
+```bash
 npm run new-post -- "文章标题"
 ```
 
@@ -122,14 +117,14 @@ function hello() {
 
 ### 双CDN图床配置
 已配置的图床系统：
-- 主图床: `fastim.cloudrunmax.top`
+- 主图床: `image.ai0728.com.cn`
 - 备用图床: `image.cloudrunmax.top`
 
 ### 图片使用方式
 
 1. **直接使用图床链接**
 ```markdown
-![图片](https://fastim.cloudrunmax.top/your-image.jpg)
+![图片](https://image.ai0728.com.cn/your-image.jpg)
 ```
 
 2. **本地图片**
@@ -141,7 +136,7 @@ function hello() {
 3. **封面图片**
 在 Front Matter 中设置：
 ```yaml
-image: 'https://fastim.cloudrunmax.top/cover.jpg'
+image: 'https://image.ai0728.com.cn/cover.jpg'
 ```
 
 ## 📂 文件组织

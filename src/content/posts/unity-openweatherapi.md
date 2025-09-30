@@ -50,4 +50,4 @@ lang: ""
 <p class="MsoNormal"><span style="font-family: 宋体;"><img src="/uploads/images/image-1753347697499-969070799.png" alt=""></span></p>
 <p class="MsoNormal"><span style="font-family: Calibri;">G.</span><span style="font-family: 宋体;">挂载脚本</span></p>
 <p class="MsoNormal"><span style="font-family: 宋体;"><img src="/uploads/images/image-1753347718981-523560948.png" alt=""></span></p>
-<p class="MsoNormal"><strong><span style="font-family: 宋体;">源脚本见&ldquo;资源分享&rdquo;--网络API（OpenWether）</span></strong></p>
+<a href="https://cloud.ai0728.com.cn/s/8LTv/OpenWeather" target="_blank" rel="noopener">源脚本</a>
