@@ -160,9 +160,13 @@ const bannerOffset =
 			offset = offset - offset % 4;
 			document.documentElement.style.setProperty('--banner-height-extend', `${offset}px`);
 
-			// Background image loading detection with mobile support
+			// Background image loading detection with mobile support and fallback
 			const bgUrl = getComputedStyle(document.documentElement).getPropertyValue('--bg-url').trim();
 			const bgEnable = getComputedStyle(document.documentElement).getPropertyValue('--bg-enable').trim();
+			
+			// 图片回退配置 (从 config.ts imageFallbackConfig 传入)
+			const ORIGINAL_DOMAIN = 'images.ai0728.com.cn';  // 主力图床
+			const FALLBACK_DOMAIN = 'image.cloudrunmax.top'; // R2备用图床
 			
 			console.log('[BG Debug] URL:', bgUrl, 'Enable:', bgEnable);
 			
@@ -171,14 +175,15 @@ const bannerOffset =
 				console.log('[BG Debug] URL Match:', urlMatch);
 				
 				if (urlMatch) {
-					const imageUrl = urlMatch[1];
+					let imageUrl = urlMatch[1];
+					let isUsingFallback = false;
 					console.log('[BG Debug] Loading:', imageUrl);
 					
 					const img = new Image();
 					img.crossOrigin = 'anonymous';  // 尝试处理跨域问题
 					
 					img.onload = function() {
-						console.log('[BG Debug] Image loaded successfully');
+						console.log('[BG Debug] Image loaded successfully' + (isUsingFallback ? ' (using fallback)' : ''));
 						document.body.classList.add('bg-loaded');
 						document.documentElement.style.setProperty('--card-bg', 'var(--card-bg-transparent)');
 						document.documentElement.style.setProperty('--float-panel-bg', 'var(--float-panel-bg-transparent)');
@@ -186,13 +191,28 @@ const bannerOffset =
 					
 					img.onerror = function(e) {
 						console.error('[BG Debug] Image load failed:', e);
-						// 即使失败也显示背景（可能是CORS问题但图片实际可用）
-						document.body.classList.add('bg-loaded');
+						
+						// 🎯 Fallback 机制: 如果图片包含主力图床域名,尝试切换到备用图床
+						if (!isUsingFallback && imageUrl.includes(ORIGINAL_DOMAIN)) {
+							isUsingFallback = true;
+							const fallbackUrl = imageUrl.replace(ORIGINAL_DOMAIN, FALLBACK_DOMAIN);
+							console.warn('[BG Debug] Switching to fallback:', fallbackUrl);
+							
+							// 更新CSS变量为备用图床URL
+							document.documentElement.style.setProperty('--bg-url', `url(${fallbackUrl})`);
+							
+							// 重新加载图片
+							img.src = fallbackUrl;
+						} else {
+							// 已经是备用图床或不包含目标域名,直接显示
+							console.warn('[BG Debug] Fallback failed or not applicable, showing anyway');
+							document.body.classList.add('bg-loaded');
+						}
 					};
 					
 					img.src = imageUrl;
 					
-					// 超时保护：5秒后强制显示
+					// 超时保护:5秒后强制显示
 					setTimeout(function() {
 						if (!document.body.classList.contains('bg-loaded')) {
 							console.warn('[BG Debug] Timeout, forcing display');

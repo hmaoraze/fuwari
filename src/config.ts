@@ -35,7 +35,7 @@ export const siteConfig: SiteConfig = {
 	},
 	background: {
 		enable: true, // Enable background image
-		src: "https://image.cloudrunmax.top/random?type=img&dir=package", // Background image URL (supports HTTPS)
+		src: "https://images.ai0728.com.cn/random?type=img&dir=package", // 🎯 使用主力图床测试 fallback
 		position: "center", // Background position: 'top', 'center', 'bottom'
 		size: "cover", // Background size: 'cover', 'contain', 'auto'
 		repeat: "no-repeat", // Background repeat: 'no-repeat', 'repeat', 'repeat-x', 'repeat-y'
@@ -137,7 +137,7 @@ export const licenseConfig: LicenseConfig = {
 //图片回退
 export const imageFallbackConfig: ImageFallbackConfig = {
 	enable: true,
-	originalDomain: "image.ai0728.com.cn",           // 主力图床
+	originalDomain: "images.ai0728.com.cn",           // 主力图床
 	fallbackDomain: "image.cloudrunmax.top",         // R2备用图床
 };
 

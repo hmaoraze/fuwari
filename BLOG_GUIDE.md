@@ -4,18 +4,18 @@
 
 ### 创建新文章
 ```bash
-npm run new-post -- "文章标题"
+pnpm run new-post -- "文章标题"
 ```
 
 ### 本地预览
 ```bash
-npm run dev
+pnpm run dev
 ```
 访问: http://localhost:4321
 
 ### 构建博客
 ```bash
-npm run build
+pnpm run build
 ```
 
 ## 📄 文章结构
