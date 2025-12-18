@@ -2,76 +2,95 @@
 
 @layer components {
     .card-base {
-        @apply rounded-[var(--radius-large)] overflow-hidden bg-[var(--card-bg)] transition;
+        @apply rounded-[var(--radius-large)] overflow-hidden bg-[var(--card-bg)] transition-all duration-300 ease-out;
+        /* 增加更细腻的边框和阴影处理，提升立体感 */
+        border: 1px solid var(--line-divider);
     }
     
+    /* 增加毛玻璃效果工具类 */
+    .glass-effect {
+        @apply backdrop-blur-md bg-[var(--card-bg-transparent)];
+        border: 1px solid var(--line-divider);
+    }
+
     /* 音乐播放器全局样式 */
     .music-player-container {
-        /* 确保播放器在导航栏中垂直居中 */
         display: flex;
         align-items: center;
         justify-content: center;
     }
     
     h1, h2, h3, h4, h5, h6, p, a, span, li, ul, ol, blockquote, code, pre, table, th, td, strong {
-        @apply transition;
+        @apply transition-colors duration-200;
     }
+
     .card-shadow {
-        @apply drop-shadow-[0_2px_4px_rgba(0,0,0,0.005)]
+        @apply drop-shadow-[0_4px_6px_rgba(0,0,0,0.02)] dark:drop-shadow-none;
     }
+
     .expand-animation {
-        @apply relative before:ease-out before:transition active:bg-none hover:before:bg-[var(--btn-plain-bg-hover)] active:before:bg-[var(--btn-plain-bg-active)] z-0
-        before:absolute before:rounded-[inherit] before:inset-0 before:scale-[0.85] hover:before:scale-100 before:-z-10
+        @apply relative before:ease-out before:transition-all before:duration-300 active:bg-none 
+        z-0 before:absolute before:rounded-[inherit] before:inset-0 before:scale-[0.85] before:opacity-0
+        hover:before:scale-100 hover:before:opacity-100 before:bg-[var(--btn-plain-bg-hover)] active:before:bg-[var(--btn-plain-bg-active)] before:-z-10;
     }
+
     .link {
         @apply transition rounded-md p-1 -m-1 expand-animation;
     }
     .link-lg {
         @apply transition rounded-md p-1.5 -m-1.5 expand-animation;
     }
+
     .float-panel {
-        @apply top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] transition shadow-xl dark:shadow-none
+        @apply top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] transition-all duration-300 shadow-xl dark:shadow-none border border-[var(--line-divider)];
     }
     .float-panel-closed {
-        @apply -translate-y-1 opacity-0 pointer-events-none
+        @apply -translate-y-4 opacity-0 pointer-events-none scale-95;
     }
+    
     .search-panel mark {
-        @apply bg-transparent text-[var(--primary)]
+        @apply bg-transparent text-[var(--primary)] font-bold;
     }
 
+    /* 按钮基础样式优化：统一按压反馈 */
     .btn-card {
-        @apply transition flex items-center justify-center bg-[var(--card-bg)] hover:bg-[var(--btn-card-bg-hover)]
-        active:bg-[var(--btn-card-bg-active)]
+        @apply transition-all duration-300 flex items-center justify-center bg-[var(--card-bg)] 
+        hover:bg-[var(--btn-card-bg-hover)] hover:-translate-y-0.5 hover:shadow-md
+        active:scale-95 active:bg-[var(--btn-card-bg-active)];
     }
     .btn-card.disabled {
-        @apply pointer-events-none text-black/10 dark:text-white/10
+        @apply pointer-events-none text-black/10 dark:text-white/10 opacity-50;
     }
+
     .btn-plain {
-        @apply transition relative flex items-center justify-center bg-none
-        text-black/75 hover:text-[var(--primary)] dark:text-white/75 dark:hover:text-[var(--primary)];
+        @apply transition-all duration-200 relative flex items-center justify-center bg-none
+        text-black/75 hover:text-[var(--primary)] dark:text-white/75 dark:hover:text-[var(--primary)]
+        active:scale-90;
         &:not(.scale-animation) {
-            @apply hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)]
+            @apply hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)];
         }
         &.scale-animation {
             @apply expand-animation;
             &.current-theme-btn {
-                @apply before:scale-100 before:opacity-100 before:bg-[var(--btn-plain-bg-hover)] text-[var(--primary)]
+                @apply before:scale-100 before:opacity-100 before:bg-[var(--btn-plain-bg-hover)] text-[var(--primary)];
             }
         }
     }
+
     .btn-regular {
-        @apply transition flex items-center justify-center bg-[var(--btn-regular-bg)] hover:bg-[var(--btn-regular-bg-hover)] active:bg-[var(--btn-regular-bg-active)]
-        text-[var(--btn-content)] dark:text-white/75
+        @apply transition-all duration-300 flex items-center justify-center bg-[var(--btn-regular-bg)] 
+        hover:bg-[var(--btn-regular-bg-hover)] active:bg-[var(--btn-regular-bg-active)] active:scale-95
+        text-[var(--btn-content)] dark:text-white/75 rounded-lg shadow-sm hover:shadow-md;
     }
 
     .link-underline {
         @apply transition underline decoration-2 decoration-dashed decoration-[var(--link-underline)]
-        hover:decoration-[var(--link-hover)] active:decoration-[var(--link-active)] underline-offset-[0.25rem]
+        hover:decoration-[var(--link-hover)] active:decoration-[var(--link-active)] underline-offset-[0.25rem];
     }
 
     .toc-hide,
     .toc-not-ready {
-        @apply opacity-0 pointer-events-none
+        @apply opacity-0 pointer-events-none translate-x-4;
     }
 
     #toc-inner-wrapper {
@@ -80,65 +99,57 @@
     }
 
     .hide-scrollbar {
-        /* Internet Explorer 10+ */
         -ms-overflow-style: none;
+        scrollbar-width: none;
     }
-    
     .hide-scrollbar::-webkit-scrollbar {
-        /* WebKit browsers (Chrome, Safari, newer versions of Edge) */
         display: none;
         width: 0 !important;
         height: 0 !important;
     }
-    
-    /* Firefox - 使用 @supports 来安全地应用 */
-    @supports (scrollbar-width: none) {
-        .hide-scrollbar {
-            scrollbar-width: none;
-        }
-    }
 
     .text-90 {
-        @apply text-black/90 dark:text-white/90
+        @apply text-black/90 dark:text-white/90;
     }
     .text-75 {
-        @apply text-black/75 dark:text-white/75
+        @apply text-black/75 dark:text-white/75;
     }
     .text-50 {
-        @apply text-black/50 dark:text-white/50
+        @apply text-black/50 dark:text-white/50;
     }
     .text-30 {
-        @apply text-black/30 dark:text-white/30
+        @apply text-black/30 dark:text-white/30;
     }
     .text-25 {
-        @apply text-black/25 dark:text-white/25
+        @apply text-black/25 dark:text-white/25;
     }
 
     .meta-icon {
         @apply w-8 h-8 transition rounded-md flex items-center justify-center bg-[var(--btn-regular-bg)]
-        text-[var(--btn-content)] mr-2
+        text-[var(--btn-content)] mr-2 hover:text-[var(--primary)];
     }
     .with-divider {
         @apply before:content-['/'] before:ml-1.5 before:mr-1.5 before:text-[var(--meta-divider)] before:text-sm
-        before:font-medium before:first-of-type:hidden before:transition
+        before:font-medium before:first-of-type:hidden before:transition;
     }
 
     .btn-regular-dark {
-        @apply flex items-center justify-center
+        @apply flex items-center justify-center transition-all duration-300
         bg-[oklch(0.45_0.01_var(--hue))] hover:bg-[oklch(0.50_0.01_var(--hue))] active:bg-[oklch(0.55_0.01_var(--hue))]
         dark:bg-[oklch(0.30_0.02_var(--hue))] dark:hover:bg-[oklch(0.35_0.03_var(--hue))] dark:active:bg-[oklch(0.40_0.03_var(--hue))]
+        active:scale-95 text-white shadow-md hover:shadow-lg;
     }
     .btn-regular-dark.success {
-        @apply bg-[oklch(0.75_0.14_var(--hue))] dark:bg-[oklch(0.75_0.14_var(--hue))]
+        @apply bg-[oklch(0.75_0.14_var(--hue))] dark:bg-[oklch(0.75_0.14_var(--hue))];
     }
 }
 
 .custom-md img, #post-cover img {
-    @apply cursor-zoom-in
+    @apply cursor-zoom-in transition-transform duration-500 hover:scale-[1.01];
 }
 
 ::selection {
-    background-color: var(--selection-bg)
+    background-color: var(--selection-bg);
 }
 
 .dash-line {

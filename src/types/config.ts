@@ -106,6 +106,19 @@ export type UmamiConfig = {
 	timezone: string;
 };
 
+// 防盗链/域名保护配置
+export type AntiLeechConfig = {
+	enable: boolean;
+	// 官方域名列表（支持字符串或对象格式）
+	officialSites: (string | { url: string; name?: string })[];
+	// 是否在控制台输出调试信息
+	debug?: boolean;
+	// 自定义警告标题
+	warningTitle?: string;
+	// 自定义警告消息
+	warningMessage?: string;
+};
+
 export type LIGHT_DARK_MODE =
 	| typeof LIGHT_MODE
 	| typeof DARK_MODE

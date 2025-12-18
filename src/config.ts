@@ -1,4 +1,5 @@
 import type {
+	AntiLeechConfig,
 	ExpressiveCodeConfig,
 	ImageFallbackConfig,
 	LicenseConfig,
@@ -146,6 +147,19 @@ export const umamiConfig: UmamiConfig = {
 	baseUrl: "https://cloud.umami.is",
 	shareId: "Ly5RD4PNG2SJRx2i",
 	timezone: "Asia/Shanghai",
+};
+
+// 防盗链/域名保护配置
+export const antiLeechConfig: AntiLeechConfig = {
+	enable: true,
+	officialSites: [
+		{ url: "https://www.micostar.cc", name: "主站" },
+		{ url: "https://www.micostar.tech", name: "备用站" },
+		{ url: "https://blog.micostar.me", name: "博客" },
+	],
+	debug: false,
+	warningTitle: "⚠️ 域名安全警告",
+	warningMessage: "您可能正在访问非官方网站，存在安全风险！建议跳转到官方网站。",
 };
 
 export const googleAnalyticsConfig = {
