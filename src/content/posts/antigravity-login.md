@@ -3,7 +3,7 @@ title: Antigravity登陆FAQ解决方法！
 published: 2025-12-28T12:16:50
 description: '最近致力于解决Antigravity账号登陆出现FAQ的问题，很多都是节点、国家都对应却也出现了FAQ'
 image: '/images/Antigravity2.webp'
-tags: [Antigravity、Gemini、AI]
+tags: [Antigravity,Gemini,AI]
 
 draft: false 
 lang: ''
