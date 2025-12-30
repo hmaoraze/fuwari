@@ -159,8 +159,6 @@ export const antiLeechConfig: AntiLeechConfig = {
 	enable: true,
 	officialSites: [
 		{ url: "https://www.micostar.cc", name: "主站" },
-		{ url: "https://www.micostar.tech", name: "备用站" },
-		{ url: "https://blog.micostar.me", name: "博客" },
 	],
 	debug: false,
 	warningTitle: "⚠️ 域名安全警告",

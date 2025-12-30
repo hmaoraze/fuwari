@@ -95,7 +95,7 @@ pnpm node scripts/migrate-from-sqlite.mjs --db "path/to/database.db" --out ./src
 ### 核心文件
 | 文件 | 说明 |
 | :--- | :--- |
-| `public/751fa2696f5b4f5890799ca542b34fbb.txt` | IndexNow 验证密钥 |
+| `public/4ff84931e3084c36bcc43c09ec05df75.txt` | IndexNow 验证密钥 |
 | `src/pages/api/indexnow.ts` | IndexNow API 端点 |
 | `src/pages/api/webhook/indexnow.ts` | Webhook 处理端点 |
 | `scripts/submit-indexnow.mjs` | 全量提交脚本 |
@@ -149,10 +149,10 @@ pnpm node scripts/migrate-from-sqlite.mjs --db "path/to/database.db" --out ./src
 pnpm submit-indexnow
 
 # 检查 API 状态
-curl https://www.micostar.tech/api/indexnow
+curl https://www.micostar.cc/api/indexnow
 
 # 验证密钥文件
-curl https://www.micostar.tech/751fa2696f5b4f5890799ca542b34fbb.txt
+curl https://www.micostar.cc/4ff84931e3084c36bcc43c09ec05df75.txt
 ```
 
 ---

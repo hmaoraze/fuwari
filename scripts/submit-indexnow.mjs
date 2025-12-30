@@ -19,9 +19,9 @@ async function submitToIndexNow() {
     console.log(`📋 准备提交 ${urls.length} 个 URL 到 IndexNow`);
 
     // IndexNow 官方配置
-    const key = '751fa2696f5b4f5890799ca542b34fbb';
-    const host = 'micostar.tech';
-    const keyLocation = 'https://micostar.tech/751fa2696f5b4f5890799ca542b34fbb.txt';
+    const key = '4ff84931e3084c36bcc43c09ec05df75';
+    const host = 'www.micostar.cc';
+    const keyLocation = 'https://www.micostar.cc/4ff84931e3084c36bcc43c09ec05df75.txt';
 
     const payload = {
       host,
