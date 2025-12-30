@@ -17,7 +17,7 @@
       }
     }
     
-    const shareUrl = `${baseUrl}/analytics/us/api/share/${shareId}`;
+    const shareUrl = `${baseUrl}/api/share/${shareId}`;
     //console.log('[Umami] 获取分享信息:', shareUrl);
     
     const res = await fetch(shareUrl);
