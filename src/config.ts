@@ -110,7 +110,7 @@ export const navBarConfig: NavBarConfig = {
 		},
 		{
 			name: "流量监控",
-			url: "https://eo.ai0728.com.cn/",
+			url: "https://eo.micostar.cc",
 			external: true,
 		},
 	],
