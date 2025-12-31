@@ -1,6 +1,6 @@
 # 关于&隐私政策
 
-最后更新日期：2025年9月
+最后更新日期：2025年12月
 
 ## 概述
 
@@ -34,10 +34,10 @@
 - 用途：提供 CDN 服务、安全防护、性能优化
 - 隐私政策：[Cloudflare 隐私政策](https://www.cloudflare.com/privacypolicy/)
 
-**Vercel**
+**EdgeOne**
 - 可能收集的信息：IP 地址、访问日志、性能数据
 - 用途：网站托管、部署服务
-- 隐私政策：[Vercel 隐私政策](https://vercel.com/legal/privacy-policy)
+- 隐私政策：[EdgeOne 隐私政策](https://cloud.tencent.com/document/product/1552/90778)
 
 ### 分析和统计服务
 
