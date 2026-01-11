@@ -1,27 +1,27 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
 
-  interface Props {
+  type Props = {
     lines?: string | string[];
     typeSpeed?: number;
     deleteSpeed?: number;
     waitTime?: number;
-  }
+  };
 
   let {
     lines = [],
     typeSpeed = 100,
     deleteSpeed = 50,
     waitTime = 2000,
-  } = $props<Props>();
+  }: Props = $props();
 
   let currentLineIndex = 0;
   let currentCharIndex = 0;
   let currentText = $state("");
   let isDeleting = false;
   let cursorVisible = $state(true);
-  let timer: number | undefined;
-  let cursorInterval: number | undefined;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  let cursorInterval: ReturnType<typeof setInterval> | undefined;
 
   let textLines = $derived(Array.isArray(lines) ? lines : [lines]);
 
