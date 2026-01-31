@@ -116,9 +116,9 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "/images/avatar.webp", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-	name: "流转星(Betsy)",
-	bio: ["爱我所爱，我们是彼此永远的动力"],
+	avatar: "https://image.hsmao.cn/blog/li/drawer_menu_information_avatar.png!/format/webp", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+	name: "hmao",
+	bio: ["茫茫人海中…遇见你，真是幸运！"],
 	links: [
 		{
 			name: "BiliBili",
@@ -142,7 +142,7 @@ export const licenseConfig: LicenseConfig = {
 //图片回退
 export const imageFallbackConfig: ImageFallbackConfig = {
 	enable: true,
-	originalDomain: "img.micostar.cc", // 主力图床 (新项目)
+	originalDomain: "image.hsmao.cn", // 主力图床 (新项目)
 	fallbackDomain: "image.cloudrunmax.top", // R2 备用图床 (旧项目)
 };
 
