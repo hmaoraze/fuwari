@@ -11,15 +11,15 @@ import type {
 import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
-	title: "Betsy Blog",
-	subtitle: "分享网络技术、服务器部署、Unity开发、AI技术应用与原理",
+	title: "指针空转",
+	subtitle: "茫茫人海中…遇见你，真是幸运！",
 	description:
-		"分享网络技术、服务器部署、Unity开发、AI技术应用与原理、作者为流转星(Betsy)",
+		"这是“hmao的日记“静态版本，与之不同可能会尽量把文章迁移过来。",
 
 	keywords: [],
 	lang: "zh_CN", // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko', 'es', 'th'
 	themeColor: {
-		hue: 361, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
+		hue: 100, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
 		fixed: true, // Hide the theme color picker for visitors
 		forceDarkMode: true, // Force dark mode and hide theme switcher
 	},
@@ -121,14 +121,14 @@ export const profileConfig: ProfileConfig = {
 	bio: ["爱我所爱，我们是彼此永远的动力"],
 	links: [
 		{
-			name: "Bilibli",
+			name: "BiliBili",
 			icon: "fa6-brands:bilibili",
-			url: "https://space.bilibili.com/420378171",
+			url: "https://space.bilibili.com/1734080863",
 		},
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/Besty0728",
+			url: "https://github.com/hmaoraze",
 		},
 	],
 };
@@ -160,7 +160,7 @@ export const antiLeechConfig: AntiLeechConfig = {
 	debug: false,
 	warningTitle: "⚠️ 域名安全警告",
 	warningMessage:
-		"您可能正在访问非官方网站，存在安全风险！建议跳转到官方网站。",
+		"您可能正在访问第三方镜像网站或暂时性的配置异常，存在安全风险！建议跳转到官方网站。",
 };
 
 export const googleAnalyticsConfig = {
